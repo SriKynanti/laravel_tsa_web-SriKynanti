@@ -8,13 +8,6 @@
         <div class="float-right my-2">
             <a class="btn btn-success" href="{{ route('mahasiswas.create') }}"> Input Mahasiswa</a>
         </div>
-        <br> <br> <br>
-		<div class="container-fluid" action="{{ route('mahasiswas.index') }}" method="GET">
-			<form class="d-flex">
-                <input class="form-control me-5" type="text" name="search" placeholder="Search by name" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
     </div>
 </div>
 
@@ -30,21 +23,15 @@
         <th>Nama</th>
         <th>Kelas</th>
         <th>Jurusan</th>
-        <th>No_Handphone</th>
-        <th>E-mail</th>
-        <th>Tanggal Lahir</th>
         <th width="280px">Action</th>
     </tr>
-    @foreach ($mahasiswas as $Mahasiswa)
+    @foreach ($paginate as $Mahasiswa)
     <tr>
 
         <td>{{ $Mahasiswa->Nim }}</td>
         <td>{{ $Mahasiswa->Nama }}</td>
-        <td>{{ $Mahasiswa->Kelas }}</td>
+        <td>{{ $Mahasiswa->Kelas->nama_kelas }}</td>
         <td>{{ $Mahasiswa->Jurusan }}</td>
-        <td>{{ $Mahasiswa->No_Handphone }}</td>
-        <td>{{ $Mahasiswa->Email }}</td>
-        <td>{{ $Mahasiswa->Tanggal_Lahir }}</td>
         <td>
             <form action="{{ route('mahasiswas.destroy',$Mahasiswa->Nim) }}" method="POST">
 
