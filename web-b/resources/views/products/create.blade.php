@@ -24,8 +24,8 @@
                 <label for="deskripsiproduk">Deskripsi</label>
             </div>
             <div class="mb-3">
-                <label for="formFile" class="form-label">Gambar Produk</label>
-                <input name="formFile" class="form-control" type="file" id="formFile">
+                <label for="image" class="form-label">Gambar Produk</label>
+                <input name="image" class="form-control" type="file" id="image">
             </div>
             <div class="col-auto">
                 <button type="submit" class="btn btn-primary mb-3">Submit</button>
