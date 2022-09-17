@@ -32,6 +32,7 @@
             <p>{{ $message }}</p>
         </div>
         @endif
+        <center>
         <table class="table table-bordered">
             <tr>
                 <th>Nama</th>
@@ -48,7 +49,7 @@
                 </td>
                 <td>
                     <form action="{{ route('products.destroy',$produk->id) }}" method="POST">
-                        <a class="btn btn-info" href="{{ route('products.show', $produk->id) }}">Show</a>
+                        <a class="btn btn-warning" href="{{ route('products.show', $produk->id) }}">Show</a>
                         <a class="btn btn-primary" href="{{ route('products.edit',$produk->id) }}">Edit</a>
                         @csrf
                         @method('DELETE')
@@ -58,6 +59,7 @@
             </tr>
             @endforeach
         </table>
+        </center>
     </div>
 </body>
 
