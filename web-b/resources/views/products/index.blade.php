@@ -39,7 +39,6 @@
                 <th>Nama</th>
                 <th>Deskripsi</th>
                 <th>Gambar</th>
-                <th width="400px">Action</th>
             </tr>
             @foreach ($products as $produk)
             <tr>
@@ -48,15 +47,7 @@
                 <td>
                     <img width="100px" height="100px" src="{{asset('storage/'.$produk->gambar)}}">
                 </td>
-                <td>
-                    <form action="{{ route('products.destroy',$produk->id) }}" method="POST">
-                        <a class="btn btn-info" href="{{ route('products.show', $produk->id) }}">Show</a>
-                        <a class="btn btn-primary" href="{{ route('products.edit',$produk->id) }}">Edit</a>
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
+                
             </tr>
             @endforeach
         </table>
