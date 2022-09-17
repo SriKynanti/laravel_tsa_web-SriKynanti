@@ -7,11 +7,6 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $products = Products::all();
@@ -40,4 +35,44 @@ class ProductsController extends Controller
         ->with('success', 'Produk Berhasil Ditambahkan');
     }
 
+    public function show($id)
+    {
+        $products = Products::find($id);
+        return view('products.detail', ['products' => $products]);
+    }
+
+
+    public function edit($id)
+    {
+        $products = Products::find($id);
+        return view('products.edit', ['products' => $products]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $products = Products::find($id);
+
+        $products->nama = $request->nama;
+        $products->deskripsi = $request->deskripsi;
+
+        if ($products->gambar && file_exists(storage_path('app/public/' . $products->gambar))) {
+            \Storage::delete('public/' . $products->gambar);
+        }
+
+        $image_name = $request->file('image')->store('images', 'public');
+        $products->gambar = $image_name;
+
+        $products->save();
+        
+        return redirect()->route('products.index')
+        ->with('success', 'Produk Berhasil Dirubah');
+    }
+
+
+    public function destroy($id)
+    {
+        Products::find($id)->delete();
+        return redirect()->route('products.index')
+            ->with('success', 'Produk Berhasil Dihapus');
+    }
 }
