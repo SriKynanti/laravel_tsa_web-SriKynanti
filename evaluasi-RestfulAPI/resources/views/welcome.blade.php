@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="https://github.com/SriKynanti/laravel_tsa_web-SriKynanti/tree/master/evaluasi-RestfulAPI">GitHub</a>
                 </div>
             </div>
         </div>
